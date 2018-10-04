@@ -1,0 +1,36 @@
+<div class="container">
+    <!-- <div class="col-md-5">
+      <form #personForm="ngForm">
+      <input type="text" name="name" [(ngModel)]="student.name" id="name" class="form-control">
+      <br>
+      <input type="text" name="email" [(ngModel)]="student.email" id="email" class="form-control">
+      <br>
+      <button class="btn btn-round btn-info" (click)="addStudent()">Click</button></form>
+    </div> -->
+      <table class="table" style="border-bottom:10px solid black;border-radius:10px;max-width:500px;">
+        <thead class="bg-dark" style="color:white">
+          <th>No</th>
+          <th>Name</th>
+          <th>email</th>
+          <th>Phone Number</th>
+          <th>Age</th>
+          <th>Address</th>
+          <th>Action</th>
+          <th></th>
+        </thead>
+          <tbody *ngFor="let student of studentArray; let i=index" style="background:white;">
+            <td>{{i}}</td>
+            <td>{{student.name}}</td>
+            <td>{{student.email}}</td>
+            <td>{{student.phone}}</td>
+            <td>{{student.age}}</td>
+            <td>{{student.address}}</td>
+            <td><i class="fa fa-trash fa-2x" (click)="del(student.$key)"  aria-hidden="true"></i></td>
+              <td><i class="fa fa-pencil-square fa-2x" (click)="populateForm(student)" aria-hidden="true"></i>
+            </td>
+          </tbody>
+      </table>
+      <div class="del text-center" *ngIf="showDeletedMessage">
+          Deleted Successfully
+      </div>
+</div>

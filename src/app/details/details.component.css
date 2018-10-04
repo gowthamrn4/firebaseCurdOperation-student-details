@@ -1,0 +1,14 @@
+.container{
+    margin:50px auto;
+   
+}
+.table
+{
+    background:lightgray;
+
+}
+.del{
+       background:red;
+       color:white;
+       border-radius:20px;
+}

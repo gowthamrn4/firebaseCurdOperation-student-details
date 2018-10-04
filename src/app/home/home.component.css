@@ -1,0 +1,17 @@
+.container
+{
+    background:gray;
+    padding:43px;
+}
+.update
+{
+    background:orange;
+    color:white;
+    border-radius:20px;
+}
+.add
+{
+    background:green;
+    color:white;
+    border-radius:20px;
+}

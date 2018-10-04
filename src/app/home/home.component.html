@@ -1,0 +1,85 @@
+<div class="container">
+     <div class="heading text-center" style="font-weight:bold;font-size:30px;color:white">
+         Student Details
+     </div>
+         <div class="row" style="padding:30px;border:2px solid black">
+             <div class="col-md-3" style="background:burlywood;border-radius:10px;border-bottom:10px solid black;border-right:10px solid black">
+                 <form [formGroup]="this.dataservice.form" #myForm="ngForm" (ngSubmit)="onSubmit()" >
+                    <input type="hidden" formControlName="$key">
+                      <div class="form-group">
+                          <label>Name</label>
+                             <input formControlName="name" class="form-control" [ngClass]="{'is-invalid':submitted && formControls.name.errors}">
+                                 <div class="invalid-feedback" *ngIf="submitted && formControls.name.errors">This Field is required</div>
+                      </div>
+                                   <div class="form-group">
+                                       <label>Email</label>
+                                           <input formControlName="email" class="form-control" [ngClass]="{'is-invalid':submitted && formControls.email.errors}">
+                                               <div class="invalid-feedback" *ngIf="submitted && formControls.email.errors">This Field is required</div>
+
+                                    </div>
+                                                   <div class="form-group">
+                                                       <label>Phone Number</label>
+                                                             <input formControlName="phone" name="phone" class="form-control" [ngClass]="{'is-invalid':submitted && formControls.phone.errors}">
+                                                                   <div class="invalid-feedback" *ngIf="submitted && formControls.phone.errors">This Field is required</div>
+       
+                                                   </div>
+            <div class="form-group">
+                <label>Age</label>
+                   <select formControlName="age" class="form-control" [ngClass]="{'is-invalid':submitted && formControls.age.errors}">
+                           <option>Select</option>
+                           <option *ngFor="let number of [20,21,22,23,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40]">{{number}}</option>
+                   </select>
+                               <div class="invalid-feedback" *ngIf="submitted && formControls.age.errors">This Field is required</div>
+
+           </div>
+                                  <div class="form-group">
+                                       <label>Address</label>
+                                            <textarea formControlName="address" class="form-control" [ngClass]="{'is-invalid':submitted && formControls.address.errors}"></textarea>
+                                                <div class="invalid-feedback" *ngIf="submitted && formControls.address.errors">This Field is required</div>
+
+                                  </div>
+         
+                                                    <div class="form-group" style="float:left;padding-left:30px;">
+                                                         <button class="btn btn-info text-center">ADD</button>          
+
+                                                    </div>
+         
+               </form>
+  
+
+         <button class="btn btn-danger" style="float:left;margin-left:15px;" (click)="update(myForm.value)">Update</button>          
+         <br><br>
+     <div class="update text-center" *ngIf="updateMessage">
+         Update Successfully
+     </div>
+
+     <div class="add text-center" *ngIf="message">
+       Add Successfully
+      </div>
+  </div>      
+ 
+
+  <div class="col-md-6">
+    <app-details></app-details>
+
+  </div>
+</div>
+<!-- <div class="container">
+<div class="row text-center">
+  <form #personForm="ngForm" (ngSubmit)="onSubmit(personForm.value)">
+    <input type="hidden" name="$key" [(ngModel)]="data.$key" class="form-control" ngModel required>
+
+    <input type="text" name="name" [(ngModel)]="data.name" class="form-control" ngModel required>
+    
+    <input type="text" name="email" [(ngModel)]="data.email" class="form-control" ngModel required>
+
+    <button class="btn btn-round">Click</button>
+
+  </form>
+</div> -->
+
+<!-- <div class="data" *ngFor="let Data of getData">
+  <h1>Name:{{Data.name}}</h1>
+  <h1>Email:{{Data.email}}</h1>
+  </div> -->
+  </div>
